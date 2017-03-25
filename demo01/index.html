@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo01</title>
+    <style>
+        .t1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>SVG 基本图形</h1>
+
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <title>Cat</title>
+    <desc>这个一个小猫</desc>
+    <circle cx="70" cy="95" r="50" style="stroke: black; fill: none" />
+    <circle cx="55" cy="80" r="5" style="stroke: red; fill: red" />
+    <circle cx="85" cy="80" r="5" style="stroke: green; fill: green" />
+    <!-- 胡须 -->
+    <g id="whiskers">
+        <line x1="75" y1="95" x2="135" y2="85" style="stroke: black" />
+        <line x1="75" y1="95" x2="135" y2="105" style="stroke: black" />
+    </g>
+    <use xlink:href="#whiskers" transform="scale(-1 1) translate(-140 0)" />
+    <!--- 耳朵 -->
+    <polyline points="108 62, 90 10, 70 45, 50 10, 32, 62" style="stroke: black; fill: none;"/>
+    <!--嘴巴 -->
+    <polyline points="35 110, 45 120, 95 120, 105, 110" style="stroke: black; fill: none;" />
+    <!-- 鼻子 -->
+    <path d="M 75 90 L 65 90 A5 10 0 0 0 75 90" style="stroke: black; fill: #ffcccc" />
+    <!-- 文本 -->
+    <text x="60" y="165" style="stroke: red; fill: black;">Cat</text>
+</svg>
+
+<ul>
+    <li>&lt;use&gt; 标签可以复用指定的分组</li>
+    <li>transform 属性可以变换形状</li>
+    <li>scale 在 transform 变换中对x坐标乘以 -1，翻转了坐标系统</li>
+    <li>translate 在 transform 变换中对图标进行了位移</li>
+    <li>polyline 用于画多边形，在 point 属性中标上坐标点，会自动闭合为不规则多边形</li>
+    <li>path 用于画线条，在 d 属性中标上从标点，但不会自动闭合，除非使用 Z 指令控制其闭合</li>
+    <li>text 用于置入文本，使用x, y属性来定位其坐标，文字的颜色使用 fill 来填充</li>
+</ul>
+</body>
+</html>
